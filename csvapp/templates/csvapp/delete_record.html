@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Record</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            color: #777;
+        }
+
+        form {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #2b50c7;
+        }
+
+        /* Style for user details */
+        .user-details {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Delete Record</h2>
+    <p>Are you sure you want to delete the following record?</p>
+
+    <!-- Display user details -->
+    <div class="user-details">
+        <p><strong>Name:</strong> {{ user_details.name }}</p>
+        <p><strong>Age:</strong> {{ user_details.age }}</p>
+        <p><strong>Email:</strong> {{ user_details.email }}</p>
+        <p><strong>City:</strong> {{ user_details.city }}</p>
+        <!-- Add more details as needed -->
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+        <a href="{% url 'all_data' %}">Cancel</a>
+    </form>
+</body>
+</html>

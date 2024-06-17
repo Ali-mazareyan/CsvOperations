@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 75%;
+            margin: 20px auto; /* Center the table horizontally */
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2b50c7;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #2b50c7;
+        }
+
+        td {
+            width: 100px; /* Adjust as needed */
+        }
+
+        td.no-data {
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<h1>All Data</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <!-- Adjust these headers based on your model fields -->
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>email</th>
+            <th>city</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if all_data %}
+            {% for item in all_data %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.age }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.city }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5" class="no-data">No data available</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+</body>
+</html>
